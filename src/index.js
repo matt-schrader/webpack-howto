@@ -1,15 +1,17 @@
-import React from 'react';
-import {render} from 'react-dom';
+import React, { Component } from 'react'
+import {render} from 'react-dom'
 import Header from './header/Header'
+import Counter from './Counter'
 
-import './index.scss'
+require( './index.scss')
 
-class App extends React.Component {
-	render () {
-		return <div>
+class App extends Component {
+	render() {
+		return (<div>
 			<Header />
-		</div>;
+			<Counter />
+		</div>)
 	}
 }
 
-render(<App/>, document.getElementById('app'));
+render(<App/>, document.getElementById('app'))

@@ -10,7 +10,7 @@ module.exports = {
 	entry: "./src/index.js",
 	output: {
 		path: __dirname + "/dist",
-		filename: "bundle.js"
+		filename: "bundle.[hash].js"
 	},
 	module: {
 		loaders: [
@@ -19,7 +19,11 @@ module.exports = {
 				loader: extractSass.extract({
 					use: [
 						{ loader: "css-loader" },
-						{ loader: "sass-loader"}
+						{ loader: "sass-loader"},
+						{
+							loader: 'sass-resources-loader',
+							query: { resources: './src/common.scss' },
+						}
 					],
 					// use style-loader in development
 					fallback: "style-loader"
@@ -30,7 +34,8 @@ module.exports = {
 				exclude: /(node_modules)/,
 				loader: 'babel-loader',
 				query: {
-					presets: ['es2015', 'react']
+					presets: ['es2015', 'react'],
+					plugins: ['transform-class-properties', 'transform-object-rest-spread']
 				}
 			}
 		]
