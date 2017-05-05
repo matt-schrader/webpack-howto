@@ -11,8 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "prop-types": "^15.5.8",
-    "react": "^15.5.4",
+    "prop-types": "^15.5.8", // >= 15.5.8 < 16.0.0
+    "react": "~15.5.0", // >= 15.5.0 < 15.6.0
     "react-dom": "^15.5.4"
   },
   "devDependencies": {
