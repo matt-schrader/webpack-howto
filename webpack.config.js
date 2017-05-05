@@ -6,6 +6,11 @@ const extractSass = new ExtractTextPlugin({
     disable: process.env.NODE_ENV !== "production"
 });
 
+let presets = ["es2015", "react"];
+if (process.env.NODE_ENV !== 'production') {
+	presets.push("react-hmre");
+}
+
 module.exports = {
 	entry: "./src/index.js",
 	output: {
@@ -34,7 +39,7 @@ module.exports = {
 				exclude: /(node_modules)/,
 				loader: 'babel-loader',
 				query: {
-					presets: ['es2015', 'react'],
+					presets: presets,
 					plugins: ['transform-class-properties', 'transform-object-rest-spread']
 				}
 			}
