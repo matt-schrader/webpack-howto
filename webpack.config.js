@@ -17,6 +17,7 @@ module.exports = {
 		path: __dirname + "/dist",
 		filename: "bundle.[hash].js"
 	},
+	devtool: 'source-map',
 	module: {
 		loaders: [
 			{
